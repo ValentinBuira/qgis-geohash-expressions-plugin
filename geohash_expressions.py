@@ -24,6 +24,9 @@
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
+from qgis.core import QgsExpression
+
+from .qgis_expression import (geohash, geohash_yx, geom_from_geohash,point_from_geohash)
 
 # Initialize Qt resources from file resources.py
 from .resources import *
@@ -66,6 +69,8 @@ class GeohashExpressions:
         # Check if plugin was started the first time in current QGIS session
         # Must be set in initGui() to survive plugin reloads
         self.first_start = None
+
+        #QgsExpression.registerFunction(custom_function1) 
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -165,10 +170,16 @@ class GeohashExpressions:
             icon_path,
             text=self.tr(u'Geohash expressions'),
             callback=self.run,
+            add_to_toolbar=False,
             parent=self.iface.mainWindow())
 
         # will be set False in run()
         self.first_start = True
+
+        QgsExpression.registerFunction(geohash) 
+        QgsExpression.registerFunction(geohash_yx)
+        QgsExpression.registerFunction(geom_from_geohash)
+        QgsExpression.registerFunction(point_from_geohash)
 
 
     def unload(self):
@@ -178,6 +189,11 @@ class GeohashExpressions:
                 self.tr(u'&Geohash Expressions'),
                 action)
             self.iface.removeToolBarIcon(action)
+
+        QgsExpression.unregisterFunction('geohash')
+        QgsExpression.unregisterFunction('geohash_yx')
+        QgsExpression.unregisterFunction('geom_from_geohash')
+        QgsExpression.unregisterFunction('point_from_geohash')
 
 
     def run(self):

@@ -3,7 +3,7 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name=Geohash Expressions
+name=Geohash Expressions Plugin
 qgisMinimumVersion=3.0
 description=This plugin adds four expression functions to work with geohash
 version=0.1
@@ -12,8 +12,8 @@ email=valentin.buira@gmail.com
 
 about=This plugin adds four expression functions to work with geohash geohash -> Calculate the GeoHash from a geometry geohash_yx -> Calculate the GeoHash from y, x (latitude, longitude) coordinates. geom_from_geohash ->Return a geometry from a GeoHash string. The geometry will be a polygon representing the GeoHash bounds. point_from_geohash -> Return a point geometry from a GeoHash string. The point represents the center point of the GeoHash.
 
-tracker=http://bugs
-repository=http://repo
+tracker=https://github.com/Poulpator/qgis-geohash-expressions-plugin/issues
+repository=https://github.com/Poulpator/qgis-geohash-expressions-plugin
 # End of mandatory metadata
 
 # Recommended items:

@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/plugins/geohash_expressions" >
-        <file>icon.png</file>
-    </qresource>
+  <qresource prefix="/plugins/geohash_expressions">
+    <file>How to use plugin.png</file>
+    <file>icon.png</file>
+  </qresource>
 </RCC>

@@ -11,7 +11,7 @@ The expressions functions of plugin are all located in the field calculator wind
 
 
 #### geohash
-Calculate the GeoHash from y, x (latitude, longitude) coordinates. 
+Calculate the <a href="http://en.wikipedia.org/wiki/Geohash">GeoHash</a> from a geometry, the coordinates used to calculate the geohash are the coordinates of the centroid of the geometry.
 #### geohash_yx
 Calculate the GeoHash from y, x (latitude, longitude) coordinates. 
 #### geom_from_geohash

@@ -2,6 +2,8 @@
 
 This plugin adds four expression functions to work with geohash in the field calculator 
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O5O41BY00W)
+
 ## How to use
 
 The expressions functions of plugin are all located in the field calculator window under the "Geohash" folder 

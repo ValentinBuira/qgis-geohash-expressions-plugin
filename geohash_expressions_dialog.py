@@ -9,7 +9,7 @@
         begin                : 2023-12-09
         git sha              : $Format:%H$
         copyright            : (C) 2023 by Valentin BUIRA
-        email                : valentin.buira@gmail.com
+        email                : valentin.buira at gmail.com
  ***************************************************************************/
 
 /***************************************************************************

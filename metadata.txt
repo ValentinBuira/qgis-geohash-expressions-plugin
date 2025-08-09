@@ -17,8 +17,8 @@ about=
     geom_from_geohash ->Return a geometry from a GeoHash string. The geometry will be a polygon representing the GeoHash bounds. 
     point_from_geohash -> Return a point geometry from a GeoHash string. The point represents the center point of the GeoHash.
 
-tracker=https://github.com/Poulpator/qgis-geohash-expressions-plugin/issues
-repository=https://github.com/Poulpator/qgis-geohash-expressions-plugin
+tracker=https://github.com/ValentinBuira/qgis-geohash-expressions-plugin/issues
+repository=https://github.com/ValentinBuira/qgis-geohash-expressions-plugin
 # End of mandatory metadata
 
 # Recommended items:
@@ -30,7 +30,7 @@ hasProcessingProvider=no
 # Tags are comma separated with spaces allowed
 tags=python,geohash,expression, field-calculator
 
-homepage=https://github.com/Poulpator/qgis-geohash-expressions-plugin
+homepage=https://github.com/ValentinBuira/qgis-geohash-expressions-plugin
 category=Plugins
 icon=icon.png
 # experimental flag

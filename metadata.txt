@@ -6,7 +6,7 @@
 name=Geohash Expressions Plugin
 qgisMinimumVersion=3.0
 description=This plugin adds four expression functions to work with geohash in the field calculator
-version=0.1
+version=0.2
 author=Valentin BUIRA
 email=valentin.buira@gmail.com
 
@@ -26,6 +26,9 @@ repository=https://github.com/ValentinBuira/qgis-geohash-expressions-plugin
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
 # changelog=
+  - Make plugin compatible with QGIS 4.x
+  <p>0.1
+  - Initial release
 
 # Tags are comma separated with spaces allowed
 tags=python,geohash,expression, field-calculator

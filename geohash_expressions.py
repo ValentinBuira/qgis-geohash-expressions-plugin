@@ -28,8 +28,6 @@ from qgis.core import QgsExpression
 
 from .qgis_expression import (geohash, geohash_yx, geom_from_geohash,point_from_geohash)
 
-# Initialize Qt resources from file resources.py
-from .resources import *
 # Import the code for the dialog
 from .geohash_expressions_dialog import GeohashExpressionsDialog
 import os.path

@@ -7,16 +7,22 @@ name=Geohash Expressions Plugin
 qgisMinimumVersion=3.0
 qgisMaximumVersion=4.99
 description=This plugin adds four expression functions to work with geohash in the field calculator
-version=0.2
-author=Valentin BUIRA
+version=0.3
+author=Valentin Buira
 email=valentin.buira@gmail.com
 
 about=
-    This plugin adds four expression functions to work with geohash in the field calculator 
-    geohash -> Calculate the GeoHash from a geometry 
-    geohash_yx -> Calculate the GeoHash from y, x (latitude, longitude) coordinates. 
-    geom_from_geohash ->Return a geometry from a GeoHash string. The geometry will be a polygon representing the GeoHash bounds. 
-    point_from_geohash -> Return a point geometry from a GeoHash string. The point represents the center point of the GeoHash.
+    This plugin adds expression functions to work with geohash in the field calculator:
+
+    - geohash -> Calculate the GeoHash from a geometry 
+    - geohash_yx -> Calculate the GeoHash from y, x (latitude, longitude) coordinates. 
+    - geom_from_geohash ->Return a geometry from a GeoHash string. The geometry will be a polygon representing the GeoHash bounds. 
+    - point_from_geohash -> Return a point geometry from a GeoHash string. The point represents the center point of the GeoHash.
+    - geohash_neighbors -> Return an array of all the neighbors from a GeoHash string
+    - geohash_neighbors_map -> Return a map of all the neighbors from a GeoHash string
+    - geohash_(north|northeast|east|southeast|south|southwest|west|northwest) -> Return the specified cardinal point neighbor of a geohash string.
+
+    If you want to support my work, you can donate to me : https://ko-fi.com/valentinbuira
 
 tracker=https://github.com/ValentinBuira/qgis-geohash-expressions-plugin/issues
 repository=https://github.com/ValentinBuira/qgis-geohash-expressions-plugin
@@ -27,6 +33,12 @@ repository=https://github.com/ValentinBuira/qgis-geohash-expressions-plugin
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
 changelog=
+  Add expression functions   to deal with geohash neighbors:
+    * geohash_neighbors
+    * geohash_neighbors_map
+    * geohash_(north|northeast|east|southeast|south|southwest|west|northwest)
+  fix QGIS 4 compatibility
+  <p>0.2
   - Make plugin compatible with QGIS 4.x
   <p>0.1
   - Initial release

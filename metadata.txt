@@ -6,7 +6,7 @@
 name=Geohash Expressions Plugin
 qgisMinimumVersion=3.0
 qgisMaximumVersion=4.99
-description=This plugin adds four expression functions to work with geohash in the field calculator
+description=This plugin adds expression functions to work with geohash in the field calculator
 version=0.3
 author=Valentin Buira
 email=valentin.buira@gmail.com
@@ -14,7 +14,7 @@ email=valentin.buira@gmail.com
 about=
     This plugin adds expression functions to work with geohash in the field calculator:
 
-    - geohash -> Calculate the GeoHash from a geometry 
+    - geohash_from_geom | geohash -> Calculate the GeoHash from a geometry 
     - geohash_yx -> Calculate the GeoHash from y, x (latitude, longitude) coordinates. 
     - geom_from_geohash ->Return a geometry from a GeoHash string. The geometry will be a polygon representing the GeoHash bounds. 
     - point_from_geohash -> Return a point geometry from a GeoHash string. The point represents the center point of the GeoHash.

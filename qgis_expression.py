@@ -55,6 +55,58 @@ def geohash(values, feature, parent):
     geohash = encode(lat , lon, precision=precision)
     return geohash
 
+
+@qgsfunction(args=-1, group='Geohash')
+def geohash_from_geom(values, feature, parent):
+    """
+    Calculate the <a href="http://en.wikipedia.org/wiki/Geohash">GeoHash</a> from a geometry, the coordinates used to calculate the geohash are the coordinates of the centroid of the geometry.
+    
+    <p>
+    A GeoHash encodes a geographic Point into a text form that is sortable and searchable based on prefixing. A shorter GeoHash is a less precise representation of a point. It can be thought of as a box that contains the point. 
+    </p>
+
+    <h4>Syntax</h4>
+    <p><b>geohash</b>( <i>geometry[, precision=12]</i> )</p>
+
+    <h4>Arguments</h4>
+    <p><i>geometry</i> &rarr; a geometry</p>
+    <p><i>precision</i> &rarr; optional precision as characters count. Default value is 12 if not specified. 
+
+
+<dl>
+<dt>Precision increase as following:</dt>
+<dd>#precision  km</dd>
+<dd>4   ± 20 km</dd>
+<dd>5   ± 2.4 km</dd>
+<dd>6   ± 0.61 km</dd>
+<dd>7   ± 0.076 km</dd>
+<dd>8   ± 0.019 km</dd>
+
+</dl>
+
+    </p>
+
+    <h4>Example usage</h4>
+    <ul>
+      <li><b>geohash</b>(make_point(-126, 48)) &rarr; 'c0w3hf1s70w3'</li>
+      <li><b>geohash</b>(make_point(-126, 48), 5) &rarr; 'c0w3h'</li>
+      <li><b>geohash</b>($geometry) &rarr; 'spezef7b6ztj'</li>
+    </ul>
+    """
+    if len(values) < 1 or len(values) > 2:
+        parent.setEvalErrorString("Error: invalid number of arguments")
+        return
+        
+    precision = 12
+    if len(values) == 2:
+        precision = int(values[1])
+        
+    geometry = values[0]
+    point = geometry.centroid().asPoint()
+    lon, lat = (point.x(), point.y())
+    geohash = encode(lat , lon, precision=precision)
+    return geohash
+
 @qgsfunction(args=-1, group='Geohash')
 def geohash_yx(values, feature, parent):
     """

@@ -26,7 +26,9 @@ from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
 from qgis.core import QgsExpression
 
-from .qgis_expression import (geohash, geohash_yx,
+from .qgis_expression import (geohash,
+                              geohash_from_geom,
+                               geohash_yx,
                                geom_from_geohash,
                                point_from_geohash,
                                geohash_neighbours,
@@ -187,7 +189,8 @@ class GeohashExpressions:
         # will be set False in run()
         self.first_start = True
 
-        QgsExpression.registerFunction(geohash) 
+        QgsExpression.registerFunction(geohash)
+        QgsExpression.registerFunction(geohash_from_geom)
         QgsExpression.registerFunction(geohash_yx)
         QgsExpression.registerFunction(geom_from_geohash)
         QgsExpression.registerFunction(point_from_geohash)
@@ -212,6 +215,7 @@ class GeohashExpressions:
             self.iface.removeToolBarIcon(action)
 
         QgsExpression.unregisterFunction('geohash')
+        QgsExpression.unregisterFunction('geohash_from_geom')
         QgsExpression.unregisterFunction('geohash_yx')
         QgsExpression.unregisterFunction('geom_from_geohash')
         QgsExpression.unregisterFunction('point_from_geohash')

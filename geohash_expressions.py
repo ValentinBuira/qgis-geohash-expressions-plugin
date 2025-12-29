@@ -26,7 +26,20 @@ from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
 from qgis.core import QgsExpression
 
-from .qgis_expression import (geohash, geohash_yx, geom_from_geohash,point_from_geohash)
+from .qgis_expression import (geohash, geohash_yx,
+                               geom_from_geohash,
+                               point_from_geohash,
+                               geohash_neighbours,
+                               geohash_neighbours_map,
+                               geohash_north,
+                               geohash_northeast,
+                               geohash_east,
+                               geohash_southeast,
+                               geohash_south,
+                               geohash_southwest,
+                               geohash_west,
+                               geohash_northwest,
+                               )
 
 # Import the code for the dialog
 from .geohash_expressions_dialog import GeohashExpressionsDialog
@@ -178,6 +191,16 @@ class GeohashExpressions:
         QgsExpression.registerFunction(geohash_yx)
         QgsExpression.registerFunction(geom_from_geohash)
         QgsExpression.registerFunction(point_from_geohash)
+        QgsExpression.registerFunction(geohash_neighbours)
+        QgsExpression.registerFunction(geohash_neighbours_map)
+        QgsExpression.registerFunction(geohash_north)
+        QgsExpression.registerFunction(geohash_northeast)
+        QgsExpression.registerFunction(geohash_east)
+        QgsExpression.registerFunction(geohash_southeast)
+        QgsExpression.registerFunction(geohash_south)
+        QgsExpression.registerFunction(geohash_southwest)
+        QgsExpression.registerFunction(geohash_west)
+        QgsExpression.registerFunction(geohash_northwest)
 
 
     def unload(self):
@@ -192,6 +215,16 @@ class GeohashExpressions:
         QgsExpression.unregisterFunction('geohash_yx')
         QgsExpression.unregisterFunction('geom_from_geohash')
         QgsExpression.unregisterFunction('point_from_geohash')
+        QgsExpression.unregisterFunction('geohash_neighbours')
+        QgsExpression.unregisterFunction('geohash_neighbours_map')
+        QgsExpression.unregisterFunction('geohash_north')
+        QgsExpression.unregisterFunction('geohash_northeast')
+        QgsExpression.unregisterFunction('geohash_east')
+        QgsExpression.unregisterFunction('geohash_southeast')
+        QgsExpression.unregisterFunction('geohash_south')
+        QgsExpression.unregisterFunction('geohash_southwest')
+        QgsExpression.unregisterFunction('geohash_west')
+        QgsExpression.unregisterFunction('geohash_northwest')
 
 
     def run(self):

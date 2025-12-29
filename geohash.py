@@ -131,3 +131,53 @@ def decode_extent(geohash):
                     lat_interval = (lat_interval[0], (lat_interval[0]+lat_interval[1])/2)
             is_even = not is_even
     return lat_interval[0], lat_interval[1], lon_interval[0], lon_interval[1]
+
+# from https://github.com/Jakub-Markowiak/geohash-tools/blob/feadd311c69bed0e96e353f322e4e1a6bf3d2c0f/geohash_tools/geohash_tools.py
+_neighbours = {
+'top': { 'even': "p0r21436x8zb9dcf5h7kjnmqesgutwvy", 'odd': "bc01fg45238967deuvhjyznpkmstqrwx" },
+'right': { 'even': "bc01fg45238967deuvhjyznpkmstqrwx", 'odd': "p0r21436x8zb9dcf5h7kjnmqesgutwvy" },
+'bottom': { 'even': "14365h7k9dcfesgujnmqp0r2twvyx8zb", 'odd': "238967debc01fg45kmstqrwxuvhjyznp" },
+'left': { 'even': "238967debc01fg45kmstqrwxuvhjyznp", 'odd': "14365h7k9dcfesgujnmqp0r2twvyx8zb" }
+}
+
+_borders = {
+'top': { 'even': "prxz", 'odd': "bcfguvyz" },
+'right': { 'even': "bcfguvyz", 'odd': "prxz" },
+'bottom': { 'even': "028b", 'odd': "0145hjnp" },
+'left': { 'even': "0145hjnp", 'odd': "028b" }
+}
+
+# from https://github.com/Jakub-Markowiak/geohash-tools/blob/feadd311c69bed0e96e353f322e4e1a6bf3d2c0f/geohash_tools/geohash_tools.py 
+def adjacent(geohash, direction):
+    '''
+    Calculate geohash adjacent to input geohash in specific direction.
+    Acceptable directions are 'top', 'right', 'bottom', 'left'.
+    Returns adjacent geohash string.
+    '''
+    base, lastChr = geohash, geohash[-1]
+    geohash_type = 'odd' if bool(len(geohash) % 2) else 'even'
+    base = base[:-1] 
+    if lastChr in _borders[direction][geohash_type]:
+        base = adjacent(base, direction)
+
+    return(base + __base32[_neighbours[direction][geohash_type].index(lastChr)])
+
+# Adapted from https://github.com/Jakub-Markowiak/geohash-tools/blob/feadd311c69bed0e96e353f322e4e1a6bf3d2c0f/geohash_tools/geohash_tools.py 
+def neighbours(geohash):
+    '''
+    Find all geohashes adjacent to input geohash.
+    If argument 'show' is set to True, function prints map of neighbouring geohashes.
+    Returns list of neighbours (including input geohash, can be disabled using 'include_self' argument).
+    '''
+    top, right, bottom, left = (adjacent(geohash, direction) for direction in _borders.keys())
+    top_left, top_right, bottom_left, bottom_right = adjacent(top, 'left'), adjacent(top, 'right'), adjacent(bottom, 'left'), adjacent(bottom, 'right')
+
+    return [top, top_right, left, right, bottom_left, bottom, bottom_right, top_left]
+
+
+def neighbours_dict(geohash):
+    cardinal_dir = ['N', 'NE', 'E', 'SE','S', 'SW', 'W', 'NW']
+    all_neighbours = neighbours(geohash)
+
+    return dict(zip(cardinal_dir, all_neighbours))
+

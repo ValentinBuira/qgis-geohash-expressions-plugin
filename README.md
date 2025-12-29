@@ -1,6 +1,6 @@
 # Qgis geohash expressions plugin
 
-This plugin adds four expression functions to work with geohash in the field calculator 
+This plugin adds expression functions to work with geohash in the field calculator 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O5O41BY00W)
 
@@ -21,6 +21,12 @@ Return a geometry from a GeoHash string. The geometry will be a polygon represen
 #### point_from_geohash
 
 Return a point geometry from a GeoHash string. The point represents the center point of the GeoHash. 
+#### geohash_neighbors
+Return an array of all the neighbors from a GeoHash string
+#### geohash_neighbors_map
+Return a map of all the neighbors from a GeoHash string
+#### geohash_(north|northeast|east|southeast|south|southwest|west|northwest)
+Return the specified cardinal point neighbor of a geohash string.
 
 ## Thanks 
 

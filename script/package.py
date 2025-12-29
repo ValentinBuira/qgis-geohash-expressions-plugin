@@ -21,7 +21,7 @@ for cat in config["files"]:
     file_names.extend(l)
     print(l)
 
-file_names = [f for f in file_names if f!='']
+file_names = [f for f in file_names if f != '']
 
 
 import zlib

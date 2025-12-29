@@ -33,10 +33,11 @@ repository=https://github.com/ValentinBuira/qgis-geohash-expressions-plugin
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
 changelog=
-  Add expression functions   to deal with geohash neighbors:
+  Add expression functions to deal with geohash neighbors:
     * geohash_neighbors
     * geohash_neighbors_map
     * geohash_(north|northeast|east|southeast|south|southwest|west|northwest)
+    * Add a more explicit synonym for the geohash function : geohash_from_geom
   fix QGIS 4 compatibility
   <p>0.2
   - Make plugin compatible with QGIS 4.x

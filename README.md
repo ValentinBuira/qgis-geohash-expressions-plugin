@@ -9,7 +9,7 @@ This plugin adds expression functions to work with geohash in the field calculat
 The expressions functions of plugin are all located in the field calculator window under the "Geohash" folder 
 
 
-![Screenshot of where are the expressions function add in the field calcultor](<How to use plugin.png>)
+![Screenshot of where are the expressions function add in the field calcultor](<how_to_use_plugin.png>)
 
 
 #### geohash_from_geom | geohash

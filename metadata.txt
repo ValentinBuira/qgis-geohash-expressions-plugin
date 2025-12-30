@@ -7,7 +7,7 @@ name=Geohash Expressions Plugin
 qgisMinimumVersion=3.0
 qgisMaximumVersion=4.99
 description=This plugin adds expression functions to work with geohash in the field calculator
-version=0.3
+version=0.3.1
 author=Valentin Buira
 email=valentin.buira@gmail.com
 

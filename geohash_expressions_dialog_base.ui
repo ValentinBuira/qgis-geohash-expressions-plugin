@@ -58,7 +58,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>How to use plugin.png</pixmap>
+    <pixmap>how_to_use_plugin.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

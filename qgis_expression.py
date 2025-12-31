@@ -5,7 +5,7 @@ from qgis.core import Qgis
 from .geohash import encode, decode, decode_extent, neighbours, neighbours_dict
 
 @qgsfunction(args=-1, group='Geohash')
-def geohash(values, feature, parent):
+def geohash(values, parent):
     """
     Calculate the <a href="http://en.wikipedia.org/wiki/Geohash">GeoHash</a> from a geometry, the coordinates used to calculate the geohash are the coordinates of the centroid of the geometry.
     
@@ -57,7 +57,7 @@ def geohash(values, feature, parent):
 
 
 @qgsfunction(args=-1, group='Geohash')
-def geohash_from_geom(values, feature, parent):
+def geohash_from_geom(values, parent):
     """
     Calculate the <a href="http://en.wikipedia.org/wiki/Geohash">GeoHash</a> from a geometry, the coordinates used to calculate the geohash are the coordinates of the centroid of the geometry.
     
@@ -108,7 +108,7 @@ def geohash_from_geom(values, feature, parent):
     return geohash
 
 @qgsfunction(args=-1, group='Geohash')
-def geohash_yx(values, feature, parent):
+def geohash_yx(values, parent):
     """
     Calculate the <a href="http://en.wikipedia.org/wiki/Geohash">GeoHash</a> from y, x (latitude, longitude) coordinates. 
     
@@ -159,7 +159,7 @@ def geohash_yx(values, feature, parent):
     return geohash
 
 @qgsfunction(args='auto', group='Geohash')
-def geom_from_geohash(geohash, feature, parent) :
+def geom_from_geohash(geohash) :
     """
     Return a geometry from a GeoHash string. The geometry will be a polygon representing the GeoHash bounds.
     <h4>Syntax</h4>
@@ -179,7 +179,7 @@ def geom_from_geohash(geohash, feature, parent) :
     return polygon
 
 @qgsfunction(args='auto', group='Geohash')
-def point_from_geohash(geohash, feature, parent):
+def point_from_geohash(geohash):
     """
     Return a point geometry from a GeoHash string. The point represents the center point of the GeoHash.
     <h4>Syntax</h4>
@@ -199,7 +199,7 @@ def point_from_geohash(geohash, feature, parent):
     return point
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_neighbours(geohash, feature, parent):
+def geohash_neighbours(geohash):
     """
     Return an array of all the neighbors from a GeoHash string. The returned geohashes array is in order ['N', 'NE', 'E', 'SE','S', 'SW', 'W', 'NW']
 
@@ -220,7 +220,7 @@ def geohash_neighbours(geohash, feature, parent):
     return neighbours(geohash)
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_neighbours_map(geohash, feature, parent):
+def geohash_neighbours_map(geohash):
     """
     Return a map of all the neighbors from a GeoHash string. The key in the map are the following cardinal point: 'N', 'NE', 'E', 'SE','S', 'SW', 'W', 'NW' .
 
@@ -244,7 +244,7 @@ def geohash_neighbours_map(geohash, feature, parent):
 
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_north(geohash, feature, parent):
+def geohash_north(geohash):
     """
     Return the northen neighbor of a geohash string.<br>Handy shortcut for geohash_neighbours_map(geohash)['N']
     <pre>
@@ -272,7 +272,7 @@ def geohash_north(geohash, feature, parent):
     return neighbours_dict(geohash)['N']
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_northeast(geohash, feature, parent):
+def geohash_northeast(geohash):
     """
     Return the north east neighbor of a geohash string.<br>Handy shortcut for geohash_neighbours_map(geohash)['NE']
     <pre>
@@ -301,7 +301,7 @@ def geohash_northeast(geohash, feature, parent):
     return neighbours_dict(geohash)['NE']
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_east(geohash, feature, parent):
+def geohash_east(geohash):
     """
     Return the eastern neighbor of a geohash string.<br>Handy shortcut for geohash_neighbours_map(geohash)['E']
     <pre>
@@ -331,7 +331,7 @@ def geohash_east(geohash, feature, parent):
 
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_southeast(geohash, feature, parent):
+def geohash_southeast(geohash):
     """
     Return the south east neighbor of a geohash string.<br>Handy shortcut for geohash_neighbours_map(geohash)['SE']
     <pre>
@@ -361,7 +361,7 @@ def geohash_southeast(geohash, feature, parent):
 
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_south(geohash, feature, parent):
+def geohash_south(geohash):
     """
     Return the southern neighbor of a geohash string.<br>Handy shortcut for geohash_neighbours_map(geohash)['S']
     <pre>
@@ -390,7 +390,7 @@ def geohash_south(geohash, feature, parent):
 
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_southwest(geohash, feature, parent):
+def geohash_southwest(geohash):
     """
     Return the south west neighbor of a geohash string.<br>Handy shortcut for geohash_neighbours_map(geohash)['SW']
     <pre>
@@ -419,7 +419,7 @@ def geohash_southwest(geohash, feature, parent):
     return neighbours_dict(geohash)['SW']
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_west(geohash, feature, parent):
+def geohash_west(geohash):
     """
     Return the western neighbor of a geohash string.<br>Handy shortcut for geohash_neighbours_map(geohash)['W']
     
@@ -449,7 +449,7 @@ def geohash_west(geohash, feature, parent):
     return neighbours_dict(geohash)['W']
 
 @qgsfunction(args='auto', group='Geohash')
-def geohash_northwest(geohash, feature, parent):
+def geohash_northwest(geohash):
     """
     Return the north west neighbor of a geohash string.<br>Handy shortcut for geohash_neighbours_map(geohash)['NW']
 

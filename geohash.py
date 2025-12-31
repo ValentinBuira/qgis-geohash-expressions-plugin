@@ -166,8 +166,6 @@ def adjacent(geohash, direction):
 def neighbours(geohash):
     '''
     Find all geohashes adjacent to input geohash.
-    If argument 'show' is set to True, function prints map of neighbouring geohashes.
-    Returns list of neighbours (including input geohash, can be disabled using 'include_self' argument).
     '''
     top, right, bottom, left = (adjacent(geohash, direction) for direction in _borders.keys())
     top_left, top_right, bottom_left, bottom_right = adjacent(top, 'left'), adjacent(top, 'right'), adjacent(bottom, 'left'), adjacent(bottom, 'right')
